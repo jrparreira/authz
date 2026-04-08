@@ -1,0 +1,8 @@
+# frozen_string_literal: true
+
+AuthzCore.configure do |config|
+  config.permission_model_name = "Permission"
+  config.role_model_name = "Role"
+  config.user_model_name = "User"
+  config.user_method_name = :current_user
+end

@@ -1,0 +1,10 @@
+# frozen_string_literal: true
+
+class AddRoleToUsers < ActiveRecord::Migration[7.0]
+  def change
+    return unless table_exists?(:users)
+    return if column_exists?(:users, :role_id)
+
+    add_reference :users, :role, foreign_key: true, null: true
+  end
+end
