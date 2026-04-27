@@ -216,3 +216,25 @@ Regra recomendada:
 - use `bundle exec rake -T authz` para listar tasks disponiveis
 - dados criados por tasks vao para o banco atual; se quiser em todos ambientes, use seed/bootstrap
 - se `bundle add pundit` falhar por duplicidade, verifique se `pundit` ja esta no Gemfile
+
+---
+
+## 8) Desinstalação (Uninstall)
+
+Para remover todos os arquivos e tabelas criados pela gem, utilize o generator de uninstall:
+
+1. Execute o generator:
+   
+   ```sh
+   rails generate authz:uninstall
+   ```
+
+   Isso irá remover os arquivos gerados (models, concern, initializer, policy) e criar uma migration para excluir as tabelas relacionadas à gem.
+
+2. Rode a migration gerada:
+   
+   ```sh
+   rails db:migrate
+   ```
+
+Pronto! Todos os artefatos da gem authz_core serão removidos do seu projeto.
